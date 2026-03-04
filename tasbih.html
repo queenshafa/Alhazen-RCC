@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasbih</title>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/src/output.css" />
+  </head>
+  <body
+    class="bg-linear-to-b from-[#71a595] to-white min-h-screen flex flex-col items-center justify-between font-sans text-emerald-900"
+  >
+    <header class="py-10 text-center">
+      <h1 class="text-3xl font-bold text-white tracking-tight">Tasbih</h1>
+      <p class="text-white text-sm">Sudahkah anda berdzikir hari ini?</p>
+    </header>
+
+    <main class="w-full max-w-md px-6 mb-auto">
+      <section
+        class="bg-white rounded-3xl shadow-xl border-t-4 border-amber-400 p-8 text-center relative overflow-hidden"
+      >
+        <div class="mb-6">
+          <label
+            for="target-select"
+            class="block text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-2"
+            >Pilih Target Zikir</label
+          >
+          <select
+            id="target-select"
+            class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded-xl focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 outline-none transition-all cursor-pointer font-bold"
+          >
+            <option value="33" selected>Target: 33</option>
+            <option value="99">Target: 99</option>
+            <option value="100">Target: 100</option>
+          </select>
+        </div>
+
+        <div class="py-6">
+          <h2
+            id="counter"
+            class="text-8xl font-black text-emerald-700 transition-transform duration-100 transform"
+          >
+            0
+          </h2>
+        </div>
+
+        <div id="notification" class="hidden animate-bounce">
+          <span
+            class="bg-amber-400 text-white px-6 py-2 rounded-lg font-bold shadow-md block"
+          >
+            MasyaAllah! Target Anda Tercapai!
+          </span>
+        </div>
+      </section>
+      <div class="flex flex-col gap-4 mt-4">
+        <button
+          id="add-btn"
+          class="w-full bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-5xl py-8 rounded-2xl shadow-lg transition-all flex items-center justify-center select-none"
+        >
+          +
+        </button>
+
+        <button
+          id="reset-btn"
+          class="text-sm font-medium text-slate-400 hover:text-red-500 transition-colors uppercase tracking-widest py-2"
+        >
+          Reset Hitungan
+        </button>
+      </div>
+    </main>
+
+    <footer
+      class="py-8 text-emerald-400 text-[10px] tracking-[0.2em] uppercase"
+    >
+      © 2026 Web Ramadhan
+    </footer>
+
+    <script>
+      let count = 0;
+
+      const counterDisplay = document.getElementById("counter");
+      const addBtn = document.getElementById("add-btn");
+      const resetBtn = document.getElementById("reset-btn");
+      const notification = document.getElementById("notification");
+      const targetSelect = document.getElementById("target-select");
+
+      // Tambah
+      addBtn.addEventListener("click", () => {
+        count++;
+        updateUI();
+      });
+
+      // Reset
+      resetBtn.addEventListener("click", () => {
+        if (confirm("Ulangi hitungan dari nol?")) {
+          count = 0;
+          updateUI();
+        }
+      });
+
+      // Reset otomatis kalau target ganti
+      targetSelect.addEventListener("change", () => {
+        updateUI();
+      });
+
+      function updateUI() {
+        const currentTarget = parseInt(targetSelect.value);
+
+        // Update teks angka
+        counterDisplay.innerText = count;
+
+        // Animasi angka
+        counterDisplay.classList.add("scale-110");
+        setTimeout(() => counterDisplay.classList.remove("scale-110"), 100);
+
+        // Logika Cek Target
+        if (count >= currentTarget) {
+          notification.classList.remove("hidden");
+          counterDisplay.classList.add("text-amber-500");
+          counterDisplay.classList.remove("text-emerald-700");
+        } else {
+          notification.classList.add("hidden");
+          counterDisplay.classList.add("text-emerald-700");
+          counterDisplay.classList.remove("text-amber-500");
+        }
+      }
+    </script>
+  </body>
+</html>
