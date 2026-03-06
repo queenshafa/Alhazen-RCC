@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator Zakat</title>
+    <link rel="stylesheet" href="/src/output.css" />
+  </head>
+  <body
+    class="bg-linear-to-b from-[#71a595] to-white min-h-screen flex flex-col items-center justify-between font-sans text-emerald-900"
+  >
+    <header class="py-10 text-center">
+      <h1 class="text-3xl font-bold text-white tracking-tight">
+        Kalkulator Zakat
+      </h1>
+      <p class="text-white text-sm">Ayo Berzakat!</p>
+    </header>
+
+    <main>
+      <section
+        class="bg-white rounded-3xl shadow-xl border-t-4 border-amber-400 p-8 relative overflow-hidden lg:w-96"
+      >
+        <div class="mb-6">
+          <label
+            for="zakat-type"
+            class="block text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-2 text-center"
+            >Jenis Zakat:</label
+          >
+          <select
+            id="zakat-type"
+            class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded-xl focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 outline-none transition-all cursor-pointer font-bold"
+          >
+            <option value="penghasilan" selected>Zakat Penghasilan</option>
+            <option value="emas">Zakat Emas</option>
+          </select>
+          <div class="mt-3">
+            <label for="harga-emas" class="text-sm font-semibold"
+              >Harga Emas (Rp.)
+              <span class="text-xs text-gray-400 font-light"
+                >untuk menghitung nisab</span
+              ></label
+            >
+            <input
+              type="number"
+              name="harga-emas"
+              id="harga-emas"
+              placeholder="Rp. 1.900.000"
+              class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded-xl focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 outline-none transition-all cursor-pointer font-bold"
+            />
+            <p class="text-gray-400 text-xs mt-1.5 text-center">
+              Nisab = 85gram Emas
+            </p>
+          </div>
+        </div>
+
+        <div id="form-penghasilan" class="mb-6">
+          <label
+            class="block text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-2 text-center"
+            >Zakat Penghasilan</label
+          >
+          <div class="mt-3">
+            <label for="gaji-bulanan" class="text-sm font-semibold"
+              >Gaji Bulanan (Rp.)
+            </label>
+            <input
+              type="number"
+              id="gaji-bulanan"
+              required
+              placeholder="Rp. 100.000.000"
+              class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded-xl focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 outline-none transition-all cursor-pointer font-bold"
+            />
+          </div>
+          <div class="mt-3">
+            <label for="penghasilan-lain" class="text-sm font-semibold"
+              >Penghasilan Lain per Bulan (Rp.)
+            </label>
+            <input
+              type="number"
+              id="penghasilan-lain"
+              placeholder="Rp. 0"
+              class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded-xl focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 outline-none transition-all cursor-pointer font-bold"
+            />
+            <p class="text-gray-400 text-xs mt-1.5">Bonus, Freelance, dll.</p>
+          </div>
+        </div>
+
+        <div id="form-emas" class="mb-6 hidden">
+          <label
+            class="block text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-2 text-center"
+            >Zakat Emas</label
+          >
+          <div class="mt-3">
+            <label for="berat-emas" class="text-sm font-semibold"
+              >Jumlah Emas yang Dimiliki (gram)
+            </label>
+            <input
+              type="number"
+              id="berat-emas"
+              required
+              placeholder="80"
+              class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded-xl focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 outline-none transition-all cursor-pointer font-bold"
+            />
+            <p class="text-gray-400 text-xs mt-1.5">
+              Total Emas yang Anda Miliki
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4 mt-4">
+          <button
+            id="calculate-btn"
+            class="w-full bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-sm py-4 rounded-lg shadow-lg transition-all flex items-center justify-center select-none cursor-pointer"
+          >
+            Hitung Zakat
+          </button>
+
+          <button
+            id="reset-btn"
+            class="text-sm font-medium text-slate-400 hover:text-red-500 transition-colors uppercase tracking-widest py-2 cursor-pointer"
+          >
+            Reset Kalkulator
+          </button>
+        </div>
+
+        <div
+          id="result-area"
+          class="mt-5 border-t border-t-gray-200 pt-5 hidden"
+        >
+          <div class="flex pt-4 gap-x-2">
+            <div
+              class="bg-emerald-50 border border-emerald-200 rounded-lg p-2 flex-1 text-center"
+            >
+              <h2 class="text-xs text-emerald-600">Nilai Harta</h2>
+              <p class="text-sm font-semibold" id="res-total-harta">
+                Rp. <span>0</span>
+              </p>
+            </div>
+            <div
+              class="bg-emerald-50 border border-emerald-200 rounded-lg p-2 flex-1 text-center"
+            >
+              <h2 class="text-xs text-emerald-600">Nilai Nisab</h2>
+              <p class="text-sm font-semibold" id="res-nisab">
+                Rp. <span>0</span>
+              </p>
+            </div>
+          </div>
+
+          <div
+            id="box-zakat"
+            class="mt-5 w-full py-4 rounded-2xl shadow-lg text-center transition-all"
+          >
+            <h2 class="text-white text-sm">Jumlah Zakat (2.5%)</h2>
+            <p class="text-white font-semibold text-lg" id="res-zakat-value">
+              Rp 0
+            </p>
+          </div>
+
+          <div class="flex justify-center">
+            <span
+              id="badge-status"
+              class="mt-3 inline-flex items-center rounded-full px-3 py-0.5 text-sm font-semibold"
+            >
+              Status Wajib
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="py-8 text-emerald-400 text-[10px] tracking-[0.2em] uppercase"
+    >
+      © 2026 Web Ramadhan
+    </footer>
+
+    <script>
+      // SCRIPT TETAP SAMA SEPERTI MILIKMU
+      const zakatType = document.getElementById("zakat-type");
+      const formPenghasilan = document.getElementById("form-penghasilan");
+      const formEmas = document.getElementById("form-emas");
+      const hargaEmasInput = document.getElementById("harga-emas");
+
+      const resultArea = document.getElementById("result-area");
+      const resTotalHarta = document.getElementById("res-total-harta");
+      const resNisab = document.getElementById("res-nisab");
+      const resZakatValue = document.getElementById("res-zakat-value");
+      const boxZakat = document.getElementById("box-zakat");
+      const badgeStatus = document.getElementById("badge-status");
+
+      function toggleForms() {
+        if (zakatType.value === "penghasilan") {
+          formPenghasilan.classList.remove("hidden");
+          formEmas.classList.add("hidden");
+        } else {
+          formPenghasilan.classList.add("hidden");
+          formEmas.classList.remove("hidden");
+        }
+        resetCalculator();
+      }
+
+      const formatRupiah = (num) =>
+        new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          maximumFractionDigits: 0,
+        }).format(num);
+
+      function calculateZakat() {
+        const hargaEmas = parseFloat(hargaEmasInput.value) || 0;
+        if (hargaEmas <= 0) return alert("Mohon isi harga emas saat ini!");
+
+        let totalHarta = 0;
+        let nisab = 0;
+
+        if (zakatType.value === "penghasilan") {
+          const gaji =
+            parseFloat(document.getElementById("gaji-bulanan").value) || 0;
+          const lain =
+            parseFloat(document.getElementById("penghasilan-lain").value) || 0;
+          totalHarta = gaji + lain;
+          nisab = (hargaEmas * 85) / 12;
+        } else {
+          const berat =
+            parseFloat(document.getElementById("berat-emas").value) || 0;
+          totalHarta = berat * hargaEmas;
+          nisab = hargaEmas * 85;
+        }
+
+        const isWajib = totalHarta >= nisab;
+        const zakat = isWajib ? totalHarta * 0.025 : 0;
+
+        resultArea.classList.remove("hidden");
+        resTotalHarta.innerText = formatRupiah(totalHarta);
+        resNisab.innerText = formatRupiah(nisab);
+        resZakatValue.innerText = formatRupiah(zakat);
+
+        if (isWajib) {
+          boxZakat.className =
+            "mt-5 w-full py-4 rounded-2xl shadow-lg text-center bg-emerald-600";
+          badgeStatus.className =
+            "mt-3 inline-flex items-center rounded-full bg-green-100 px-3 py-0.5 text-sm font-semibold text-emerald-600";
+          badgeStatus.innerText = "Sudah Wajib Zakat";
+        } else {
+          boxZakat.className =
+            "mt-5 w-full py-4 rounded-2xl shadow-inner text-center bg-gray-400";
+          badgeStatus.className =
+            "mt-3 inline-flex items-center rounded-full bg-red-100 px-3 py-0.5 text-sm font-semibold text-red-600";
+          badgeStatus.innerText = "Belum Wajib Zakat";
+        }
+      }
+
+      function resetCalculator() {
+        resultArea.classList.add("hidden");
+        document.querySelectorAll("input").forEach((input) => {
+          if (input.id !== "harga-emas") input.value = "";
+        });
+      }
+
+      zakatType.addEventListener("change", toggleForms);
+      document
+        .getElementById("calculate-btn")
+        .addEventListener("click", calculateZakat);
+      document
+        .getElementById("reset-btn")
+        .addEventListener("click", resetCalculator);
+
+      toggleForms();
+    </script>
+  </body>
+</html>
