@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ramadhan Daily Tracker</title>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/src/output.css" />
+    <!-- Flowbite -->
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    /> -->
+  </head>
+  <body
+    class="bg-linear-to-b from-[#71a595] to-white min-h-screen flex flex-col items-center justify-center font-sans text-emerald-900"
+  >
+    <header class="w-full mt-12 max-w-md px-6 lg:max-w-7xl">
+      <div
+        class="bg-white rounded-3xl w-full mb-auto shadow-xl border-t-4 border-amber-400 px-8 py-6 text-center relative overflow-hidden"
+      >
+        <h1 class="text-center font-bold text-emerald-600 text-2xl">
+          Jadwal Imsakiyah
+        </h1>
+        <div class="mb-6 mt-5">
+          <label
+            for="target-select"
+            class="block text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-2"
+            >Pilih Kotamu!</label
+          >
+          <select
+            id="target-select"
+            class="bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm rounded-xl focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 outline-none transition-all cursor-pointer font-bold"
+          >
+            <option value="Jakarta" selected>Jakarta</option>
+            <option value="Bekasi">Bekasi</option>
+            <option value="Bogor">Bogor</option>
+          </select>
+        </div>
+      </div>
+    </header>
+    <main class="w-full max-w-md px-6 mb-auto mt-12 lg:max-w-7xl">
+      <section
+        class="bg-white rounded-3xl shadow-xl border-t-4 border-t-amber-400 border-amber-40 text-center relative overflow-hidden"
+      >
+        <div class="">
+          <div class="overflow-x-auto">
+            <table class="w-full text-[11px] text-left">
+              <thead class="text-white uppercase bg-emerald-700">
+                <tr>
+                  <th class="px-3 py-4">Tgl</th>
+                  <th class="px-2 py-4 text-center">Imsak</th>
+                  <th class="px-2 py-4 text-center">Subuh</th>
+                  <th class="px-2 py-4 text-center">Dzuhur</th>
+                  <th class="px-2 py-4 text-center">Ashar</th>
+                  <th class="px-2 py-4 text-center">Maghrib</th>
+                  <th class="px-2 py-4 text-center">Isya</th>
+                </tr>
+              </thead>
+              <tbody id="schedule-body"></tbody>
+            </table>
+          </div>
+
+          <div id="loading-state" class="hidden p-12 text-center">
+            <div
+              class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-emerald-500 border-t-transparent"
+            ></div>
+            <p class="mt-3 text-emerald-600 font-semibold text-xs">
+              Menyelaraskan waktu...
+            </p>
+          </div>
+
+          <div id="error-state" class="hidden p-12 text-center text-red-500">
+            <p class="text-xs font-bold">
+              Waduh, koneksi terputus. Coba cek internetmu ya!
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="py-8 text-emerald-400 text-[10px] tracking-[0.2em] uppercase"
+    >
+      © 2026 Web Ramadhan
+    </footer>
+
+    <script>
+      const citySelect = document.getElementById("target-select");
+      const scheduleBody = document.getElementById("schedule-body");
+      const loadingState = document.getElementById("loading-state");
+      const errorState = document.getElementById("error-state");
+
+      const cityIdMap = {
+        Jakarta: "1301",
+        Bekasi: "1204",
+        Bogor: "1205",
+      };
+
+      async function fetchJadwal() {
+        const cityName = citySelect.value;
+        const cityId = cityIdMap[cityName] || "1301"; // Fallback Jakarta
+
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth() + 1;
+        const todayISO = now.toISOString().split("T")[0];
+
+        // UI Reset
+        scheduleBody.innerHTML = "";
+        loadingState.classList.remove("hidden");
+        errorState.classList.add("hidden");
+
+        try {
+          const response = await fetch(
+            `https://api.myquran.com/v2/sholat/jadwal/${cityId}/${year}/${month}`,
+          );
+          const result = await response.json();
+
+          if (result.status) {
+            renderTable(result.data.jadwal, todayISO);
+          } else {
+            throw new Error("Data tidak ditemukan");
+          }
+        } catch (err) {
+          errorState.classList.remove("hidden");
+          console.error("Fetch Error:", err);
+        } finally {
+          loadingState.classList.add("hidden");
+        }
+      }
+
+      function renderTable(jadwal, todayISO) {
+        let rows = "";
+        jadwal.forEach((day) => {
+          const isToday = day.date === todayISO;
+          const dateNum = day.tanggal.split(", ")[1].split("/")[0];
+
+          rows += `
+        <tr class="border-b border-emerald-50 transition-all ${
+          isToday
+            ? "bg-emerald-100 font-black text-emerald-950 border-l-4 border-l-emerald-500"
+            : "hover:bg-emerald-50/50"
+        }">
+          <td class="px-3 py-4 text-center font-bold text-emerald-700">${dateNum}</td>
+          <td class="px-2 py-4 text-center">${day.imsak}</td>
+          <td class="px-2 py-4 text-center">${day.subuh}</td>
+          <td class="px-2 py-4 text-center">${day.dzuhur}</td>
+          <td class="px-2 py-4 text-center">${day.ashar}</td>
+          <td class="px-2 py-4 text-center text-orange-600 font-bold">${day.maghrib}</td>
+          <td class="px-2 py-4 text-center">${day.isya}</td>
+        </tr>
+      `;
+        });
+        scheduleBody.innerHTML = rows;
+      }
+
+      citySelect.addEventListener("change", fetchJadwal);
+
+      fetchJadwal();
+    </script>
+  </body>
+</html>
