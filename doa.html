@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+initial-scale=1.0"
+    />
+    <title>Doa Sahur & Buka Puasa</title>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/src/output.css" />
+    <!-- Flowbite -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Font (Arabic) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Helper -->
+    <style>
+      .font-arabic {
+        font-family: "Amiri", serif;
+      }
+    </style>
+  </head>
+  <body class="bg-[#71a595] text-gray-800">
+    <nav
+      class="backdrop-blur-md bg-white/70 border-b border-emerald-100 shadow-sm w-full z-20 top-0 start-0 border-default"
+    >
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="index.html"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <div
+            class="bg-emerald-600 p-2 rounded-xl shadow-lg shadow-emerald-200"
+          >
+            <p>🌙</p>
+          </div>
+          <span
+            class="self-center text-xl text-heading font-semibold whitespace-nowrap"
+            >Ramadhan Portal</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              d="M5 7h14M5 12h14M5 17h14"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary"
+          >
+            <li>
+              <a
+                href="index.html"
+                class="block py-2 px-3 bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="imsak.html"
+                aria-current="page"
+                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                >Jadwal Imsakiyah</a
+              >
+            </li>
+            <li>
+              <a
+                href="doa.html"
+                aria-current="page"
+                class="block py-2 px-3 text-emerald-600 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                >Doa Sahur & Buka</a
+              >
+            </li>
+            <li>
+              <a
+                href="kalkulator-zakat.html"
+                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                >Kalkulator Zakat</a
+              >
+            </li>
+            <li>
+              <a
+                href="tracker.html"
+                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                >Tracker Harian</a
+              >
+            </li>
+            <li>
+              <a
+                href="tasbih.html"
+                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                >Tasbih Digital</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- HEADER -->
+    <header class="bg-[#f4e0ae] text-[#71a595] text-center py-6 rounded-b-3xl">
+      <h1 class="text-2xl font-semibold mb-2">Doa Ramadhan</h1>
+      <!-- <div class="bg-[#71a595]"> -->
+      <span class="text-sm text-white bg-[#71a595] p-2 rounded-lg">
+        Panduan doa harian untuk menyempurnakan ibadah Anda
+      </span>
+      <!-- </div> -->
+    </header>
+    <!-- MAIN -->
+    <main class="mx-auto px-4 py-10 lg:grid lg:grid-cols-2 lg:gap-x-10 lg:px-8">
+      <!--
+TUGAS SISWA:
+1. Buat 2 section: Sahur & Buka Puasa
+2. Gunakan <section> dan <article>
+3. Gunakan class font-arabic untuk teks Arab
+4. Styling dengan Tailwind agar rapi & responsif
+-->
+
+      <!-- Doa Sahur -->
+      <section>
+        <div
+          class="container max-w-225 bg-white border-l-4 border-l-[#f4be63] leading-[1.8] p-5 rounded-xl shadow-lg lg:max-w-150 lg:text-center"
+        >
+          <h2
+            class="text-3xl font-semibold text-[#71a595] border-b border-b-gray-500 pb-3"
+          >
+            Doa Sahur
+          </h2>
+          <p class="font-arabic text-[#1a1a1a] text-[26px] mt-4">
+            يَرْحَمُ اللهُ الْمُتَسَحِّرِينَ
+          </p>
+          <p class="text-[18px] text-[#333333 italic">
+            "Yarhamullâhul mutasahhirîn"
+          </p>
+          <div class="bg-[#71a595] p-2 rounded-lg mt-3">
+            <p class="text-[16px] text-white">
+              <span class="font-bold">Artinya:</span> "Semoga Allah menurunkan
+              rahmat-Nya bagi mereka yang bersahur"
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Doa Buka Puasa -->
+      <section class="mt-8 lg:mt-0">
+        <div
+          class="container max-w-225 bg-white border-l-4 border-l-[#f4be63] leading-[1.8] p-5 rounded-xl shadow-lg lg:max-w-150 lg:text-center"
+        >
+          <h2
+            class="text-3xl font-semibold text-[#71a595] border-b border-b-gray-500 pb-3"
+          >
+            Doa Buka Puasa (Riwayat HR. Abu Daud)
+          </h2>
+          <p class="font-arabic text-[#1a1a1a] text-[26px] mt-4">
+            ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الأَجْرُ إِنْ
+            شَاءَ اللَّهُ
+          </p>
+          <p class="text-[18px] text-[#333333 italic">
+            "Dzahabaz zhama'u wabtallatil 'uruqu wa tsabatal ajru, insya Allah."
+          </p>
+          <div class="bg-[#71a595] p-2 rounded-lg mt-3">
+            <p class="text-[16px] text-white">
+              <span class="font-bold">Artinya:</span> "Telah hilang rasa haus,
+              dan urat-urat telah basah serta pahala telah tetap, insya Allah"
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer
+      class="absolute bottom-0 w-screen text-center text-xs bg-[#f4be63] text-white py-4"
+    >
+      © 2026 Web Ramadhan
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+  </body>
+</html>

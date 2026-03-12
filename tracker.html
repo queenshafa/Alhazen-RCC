@@ -15,8 +15,106 @@
   <body
     class="bg-linear-to-b from-[#71a595] to-white min-h-screen flex flex-col items-center justify-between font-sans text-emerald-900"
   >
+    <nav
+      class="backdrop-blur-md bg-white/70 border-b border-emerald-100 shadow-sm w-full z-20 top-0 start-0 border-default"
+    >
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="index.html"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <div
+            class="bg-emerald-600 p-2 rounded-xl shadow-lg shadow-emerald-200"
+          >
+            <p>🌙</p>
+          </div>
+          <span
+            class="self-center text-xl text-heading font-semibold whitespace-nowrap"
+            >Ramadhan Portal</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              d="M5 7h14M5 12h14M5 17h14"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary"
+          >
+            <li>
+              <a
+                href="index.html"
+                class="block py-2 px-3 bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="imsak.html"
+                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                >Jadwal Imsakiyah</a
+              >
+            </li>
+            <li>
+              <a
+                href="doa.html"
+                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                >Doa Sahur & Buka</a
+              >
+            </li>
+            <li>
+              <a
+                href="kalkulator-zakat.html"
+                aria-current="page"
+                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                >Kalkulator Zakat</a
+              >
+            </li>
+            <li>
+              <a
+                href="tracker.html"
+                aria-current="page"
+                class="block py-2 px-3 text-emerald-600 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                >Tracker Harian</a
+              >
+            </li>
+            <li>
+              <a
+                href="tasbih.html"
+                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                >Tasbih Digital</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <!-- Header + Logo Ramadhan Done -->
-    <header
+    <!-- <header
       class="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-emerald-100 shadow-sm p-4 w-screen"
     >
       <div class="max-w-md mx-auto flex justify-between items-center">
@@ -45,7 +143,7 @@
           >
         </div>
       </div>
-    </header>
+    </header> -->
     <main>
       <section
         class="max-w-md mt-10 bg-white rounded-3xl shadow-xl border-t-4 border-amber-400 p-8 relative overflow-hidden lg:w-96"
@@ -278,10 +376,7 @@
     </footer>
 
     <!-- Flowbite JS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css"
-      rel="stylesheet"
-    />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 
     <script>
       // Ringkasan Perhari
