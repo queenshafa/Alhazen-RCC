@@ -11,10 +11,14 @@
       href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css"
       rel="stylesheet"
     />
+    <!-- Remixicon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
   </head>
-  <body
-    class="bg-linear-to-b from-[#71a595] to-white min-h-screen font-sans text-emerald-900"
-  >
+  <body class="bg-cubic min-h-screen font-sans text-emerald-900">
+    <!-- Navbar -->
     <nav
       class="backdrop-blur-md bg-white/70 border-b border-emerald-100 shadow-sm fixed w-full z-20 top-0 start-0 border-default"
     >
@@ -67,7 +71,7 @@
             <li>
               <a
                 href="index.html"
-                class="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0"
+                class="block py-2 px-3 text-emerald-600 bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0"
                 aria-current="page"
                 >Home</a
               >
@@ -112,22 +116,121 @@
       </div>
     </nav>
 
-    <main class="h-screen pt-24 flex flex-col items-center justify-center">
-      <section class="min-h-[80vh] flex flex-col justify-center text-center">
+    <main class="flex flex-col items-center justify-center">
+      <!-- Hero -->
+      <section class="h-screen flex flex-col justify-center text-center">
         <h1 class="text-emerald-600 text-5xl font-bold">
           Selamat Datang di Ramadhan Portal,
         </h1>
-        <h2 class="text-2xl font-semibold mt-3">
-          Jelajahi Fitur-Fitur Kami di Menu!
-        </h2>
+        <h2 class="text-2xl font-semibold mt-3">Ramadhan jadi lebih mudah!</h2>
+        <div class="mt-8">
+          <a
+            href="#feature"
+            class="bg-emerald-600 text-white font-semibold p-4 rounded-2xl text-lg"
+            >Jelajahi Fitur!</a
+          >
+        </div>
       </section>
 
-      <footer
-        class="absolute bottom-0 py-8 text-emerald-400 text-[10px] tracking-[0.2em] uppercase"
-      >
-        © 2026 Web Ramadhan
-      </footer>
+      <!-- List Fitur -->
+      <section class="py-20 px-6 w-screen" id="feature">
+        <h1 class="text-emerald-600 text-5xl font-bold text-center">
+          Fitur Ramadhan Portal
+        </h1>
+        <div class="grid grid-cols-2 mt-8">
+          <!-- Card Imsak -->
+          <div
+            class="flex flex-col justify-between bg-white/50 border-b border-emerald-100 shadow-sm rounded-2xl p-2 m-2"
+          >
+            <p class="text-6xl font-semibold text-right text-emerald-600">01</p>
+            <div class="flex justify-between p-2">
+              <h2 class="text-2xl font-semibold">Jadwal<br />Imsakiyah</h2>
+              <a
+                href="imsak.html"
+                class="flex flex-col self-end bg-emerald-600 px-3 py-2 rounded-full w-10"
+                ><i class="ri-arrow-right-line text-lg font-bold text-white"></i
+              ></a>
+            </div>
+          </div>
+          <!-- Card Imsak -->
+          <div
+            class="flex flex-col justify-between bg-white/50 border-b border-emerald-100 shadow-sm rounded-2xl p-2 m-2"
+          >
+            <p class="text-6xl font-semibold text-right text-emerald-600">02</p>
+            <div class="flex justify-between p-2">
+              <h2 class="text-2xl font-semibold">Do'a Sahur dan Buka</h2>
+              <a
+                href="imsak.html"
+                class="flex flex-col self-end bg-emerald-600 px-3 py-2 rounded-full w-10"
+                ><i class="ri-arrow-right-line text-lg font-bold text-white"></i
+              ></a>
+            </div>
+          </div>
+          <!-- Card Imsak -->
+          <div
+            class="flex flex-col justify-between bg-white/50 border-b border-emerald-100 shadow-sm rounded-2xl p-2 m-2"
+          >
+            <p class="text-6xl font-semibold text-right text-emerald-600">03</p>
+            <div class="flex justify-between p-2">
+              <h2 class="text-2xl font-semibold">Kalkulator Zakat</h2>
+              <a
+                href="imsak.html"
+                class="flex flex-col self-end bg-emerald-600 px-3 py-2 rounded-full w-10"
+                ><i class="ri-arrow-right-line text-lg font-bold text-white"></i
+              ></a>
+            </div>
+          </div>
+          <!-- Card Imsak -->
+          <div
+            class="flex flex-col justify-between bg-white/50 border-b border-emerald-100 shadow-sm rounded-2xl p-2 m-2"
+          >
+            <p class="text-6xl font-semibold text-right text-emerald-600">04</p>
+            <div class="flex justify-between p-2">
+              <h2 class="text-2xl font-semibold">Tracker Harian</h2>
+              <a
+                href="imsak.html"
+                class="flex flex-col self-end bg-emerald-600 px-3 py-2 rounded-full w-10"
+                ><i class="ri-arrow-right-line text-lg font-bold text-white"></i
+              ></a>
+            </div>
+          </div>
+          <!-- Card Imsak -->
+          <div
+            class="flex flex-col justify-between bg-white/50 border-b border-emerald-100 shadow-sm rounded-2xl p-2 m-2"
+          >
+            <p class="text-6xl font-semibold text-right text-emerald-600">05</p>
+            <div class="flex justify-between p-2">
+              <h2 class="text-2xl font-semibold">Tasbih Digital</h2>
+              <a
+                href="imsak.html"
+                class="flex flex-col self-end bg-emerald-600 px-3 py-2 rounded-full w-10"
+                ><i class="ri-arrow-right-line text-lg font-bold text-white"></i
+              ></a>
+            </div>
+          </div>
+          <!-- Card Imsak -->
+          <div
+            class="flex flex-col justify-between bg-white/50 border-b border-emerald-100 shadow-sm rounded-2xl p-2 m-2"
+          >
+            <p class="text-6xl font-semibold text-right text-emerald-600">#</p>
+            <div class="flex justify-between p-2">
+              <h2 class="text-2xl font-semibold">Kritik & Saran?</h2>
+              <a
+                href="imsak.html"
+                class="flex flex-col self-end bg-emerald-600 px-3 py-2 rounded-full w-10"
+                ><i class="ri-mail-line text-lg font-bold text-white"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer
+      class="text-center py-8 text-emerald-400 text-[10px] tracking-[0.2em] uppercase"
+    >
+      © 2026 Web Ramadhan
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
   </body>

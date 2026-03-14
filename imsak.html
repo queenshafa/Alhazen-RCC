@@ -13,7 +13,7 @@
     />
   </head>
   <body
-    class="bg-linear-to-b from-[#71a595] to-white min-h-screen flex flex-col items-center justify-center font-sans text-emerald-900"
+    class="bg-cubic min-h-screen flex flex-col items-center justify-center font-sans text-emerald-900"
   >
     <nav
       class="backdrop-blur-md bg-white/70 border-b border-emerald-100 shadow-sm w-full z-20 top-0 start-0 border-default"
@@ -112,14 +112,14 @@
         </div>
       </div>
     </nav>
-    <header class="w-full mt-24 max-w-md px-6 lg:max-w-7xl">
+    <header class="w-full mt-24 px-4 md:px-6 max-w-6xl">
       <div
-        class="bg-white rounded-3xl w-full mb-auto shadow-xl border-t-4 border-amber-400 px-8 py-6 text-center relative overflow-hidden"
+        class="bg-white rounded-3xl w-full shadow-xl border-t-4 border-amber-400 px-8 py-6 text-center relative overflow-hidden"
       >
         <h1 class="text-center font-bold text-emerald-600 text-2xl">
           Jadwal Imsakiyah
         </h1>
-        <div class="mb-6 mt-5">
+        <div class="mb-2 mt-5 max-w-xs mx-auto">
           <label
             for="target-select"
             class="block text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-2"
@@ -136,25 +136,29 @@
         </div>
       </div>
     </header>
-    <main class="-full max-w-md px-6 mb-auto mt-12 lg:max-w-7xl">
+
+    <main class="w-full px-4 md:px-6 mb-12 mt-8 max-w-6xl">
       <section
-        class="bg-white rounded-3xl shadow-xl border-t-4 border-t-amber-400 border-amber-40 text-center relative overflow-hidden"
+        class="w-full bg-white rounded-3xl shadow-xl border-t-4 border-amber-400 text-center relative overflow-hidden"
       >
-        <div class="">
+        <div class="flex flex-col">
           <div class="overflow-x-auto">
-            <table class="w-full text-[11px] text-left">
+            <table class="w-full text-sm md:text-base text-left">
               <thead class="text-white uppercase bg-emerald-700">
                 <tr>
-                  <th class="px-3 py-4">Tgl</th>
-                  <th class="px-2 py-4 text-center">Imsak</th>
-                  <th class="px-2 py-4 text-center">Subuh</th>
-                  <th class="px-2 py-4 text-center">Dzuhur</th>
-                  <th class="px-2 py-4 text-center">Ashar</th>
-                  <th class="px-2 py-4 text-center">Maghrib</th>
-                  <th class="px-2 py-4 text-center">Isya</th>
+                  <th class="px-4 py-5 text-center">Tgl</th>
+                  <th class="px-2 py-5 text-center">Imsak</th>
+                  <th class="px-2 py-5 text-center">Subuh</th>
+                  <th class="px-2 py-5 text-center">Dzuhur</th>
+                  <th class="px-2 py-5 text-center">Ashar</th>
+                  <th class="px-2 py-5 text-center">Maghrib</th>
+                  <th class="px-2 py-5 text-center">Isya</th>
                 </tr>
               </thead>
-              <tbody id="schedule-body"></tbody>
+              <tbody
+                id="schedule-body"
+                class="divide-y divide-emerald-50"
+              ></tbody>
             </table>
           </div>
 
@@ -162,13 +166,12 @@
             <div
               class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-emerald-500 border-t-transparent"
             ></div>
-            <p class="mt-3 text-emerald-600 font-semibold text-xs">
+            <p class="mt-3 text-emerald-600 font-semibold">
               Menyelaraskan waktu...
             </p>
           </div>
-
           <div id="error-state" class="hidden p-12 text-center text-red-500">
-            <p class="text-xs font-bold">
+            <p class="font-bold">
               Waduh, koneksi terputus. Coba cek internetmu ya!
             </p>
           </div>
